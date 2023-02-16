@@ -39,7 +39,7 @@ def set_initial_guess(n_z, n_tor):
     z_vec = np.zeros(N_dofx + N_dofy)
     i_dofx = 0
     i_dofy = 0
-    c = 0.0
+    c = 0.0 #sets inital values of all degrees of freedom to c (boundary is always constrained by construction)
 
     # looping on all the mode numbers
     for i_n in range(-n_tor, n_tor + 1):

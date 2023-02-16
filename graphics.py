@@ -46,9 +46,9 @@ def plot_grid(N_rad, N_pol, N_tor, xx, yy, N_fp):
         plt.title(title)
         plt.xlabel("$R$", fontsize=16)
         plt.ylabel("$Z$", fontsize=16)
-        plt.show(bbox_inches='tight')
-
-        plt.show()
+        #plt.show(bbox_inches='tight')
+        plt.tight_layout()
+    plt.show()
 
 
 def plot_out(xy_m, const):
