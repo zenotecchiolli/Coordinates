@@ -191,7 +191,7 @@ def out_quantities(xy_m, const, out_name_SPEC):
     open(out_name_SPEC, 'w').close()
 
     # looping over every spatial point
-    for i_s in range(1, N_rad + 2):
+    for i_s in range(0, N_rad + 2):
         file = open(out_name_SPEC, 'a+')
         R_vec = np.zeros(mz)
         Z_vec = np.zeros(mz)
