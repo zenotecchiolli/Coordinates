@@ -240,6 +240,10 @@ def out_quantities(xy_m, const, out_name_SPEC):
                     der_R_mat[i_s, j_spec(i_n, i_m, n_tor)] = der_R_vec[j_spec(i_n, i_m, n_tor)]
                     m_spec[j_spec(i_n, i_m, n_tor)] = i_m
                     n_spec[j_spec(i_n, i_m, n_tor)] = i_n
+
+        der_R_vec = der_R_vec*0.5 # factor 1/2 because dR/ds = 0.5*dR/dsbar
+        der_Z_vec = der_Z_vec*0.5 # factor 1/2 because dZ/ds = 0.5*dZ/dsbar
+
         stringa = ''
         for i_j in range(mz):
             aus = '%E \t' % R_vec[i_j]  # first line Rnm[i]
@@ -252,12 +256,12 @@ def out_quantities(xy_m, const, out_name_SPEC):
         file.write(stringa + '\n')
         stringa = ''
         for i_j in range(mz):
-            aus = '%E \t' % der_R_vec[i_j]  # third line der_Rnm[i]
+            aus = '%E \t' % der_R_vec[i_j]  # third line der_Rnm[i] 
             stringa = stringa + aus
         file.write(stringa + '\n')
         stringa = ''
         for i_j in range(mz):
-            aus = '%E \t' % der_Z_vec[i_j]   # fourth line line der_Rnm[i]
+            aus = '%E \t' % der_Z_vec[i_j]   # fourth line line der_Znm[i] 
             stringa = stringa + aus
         file.write(stringa + '\n')
         file.close()
