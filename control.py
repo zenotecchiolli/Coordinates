@@ -31,7 +31,7 @@ def run(file_in, file_out, file_spec):
 
     # prepares the starting vector
     s_data = np.zeros(len(s))
-    s_data[:] = s[:]
+    s_data[:] = (s[:]+1)/2 #converts s-input into sbar-input
     s = np.linspace(0, 1, N_rad + 2)
     n_z = m_pol
     teta = np.linspace(0, 2 * np.pi, N_pol + 1)
@@ -46,6 +46,8 @@ def run(file_in, file_out, file_spec):
     # runs the minimisation
     print('minimisation starts:')
     x0 = xy_m
+  
+    plot_out(x0,const)
 
     res = optimize.minimize(action, x0, method='BFGS', args=const, jac=gradient_action,
                options={'disp': True})
